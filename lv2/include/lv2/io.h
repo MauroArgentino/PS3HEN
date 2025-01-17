@@ -89,9 +89,19 @@ LV2_EXPORT int cellFsRead(int fd, void *buf, uint64_t nbytes, uint64_t *nread);
 LV2_EXPORT int cellFsWrite(int fd, void *buf, uint64_t nbytes, uint64_t *nwrite);
 LV2_EXPORT int cellFsLseek(int fd, int64_t offset, int whence, uint64_t *pos);
 LV2_EXPORT int cellFsStat(const char *path, CellFsStat *sb);
+LV2_EXPORT int cellFsMkdir(const char *path, CellFsMode mode);
 LV2_EXPORT int cellFsUtime(const char *path, CellFsUtimbuf *timep);
 
 #ifdef io_sub_rtoc_entry_1
+
+LV2_EXPORT int cellFsRename_internal(void *structure, const char *from, const char *to, uint64_t unk);
+
+static INLINE int cellFsRename(const char *from, const char *to)
+{
+	uint64_t *structure = (uint64_t *) *(uint64_t *)MKA(TOC+io_rtoc_entry_1);
+	structure = (uint64_t *)structure[io_sub_rtoc_entry_1];
+	return cellFsRename_internal(structure, from, to, 0);
+}
 
 static INLINE int cellFsUnlink(const char *path)
 {
@@ -116,6 +126,8 @@ LV2_EXPORT int open_fs_object(void *unk, char *path, void **fs_object, void **un
 LV2_EXPORT int close_fs_object(void *unk, fs_object_handle_t handle);
 
 LV2_EXPORT int get_path_by_fd(int fd, char *path);
+
+LV2_EXPORT char* path_clean(char* path);
 
 #endif /* __LV2_IO_H__ */
 

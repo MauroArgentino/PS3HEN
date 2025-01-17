@@ -18,9 +18,31 @@
 //CORE
 //-----------------------------------------------
 
-#define PS3MAPI_CORE_VERSION			 		0x0121
+#define PS3MAPI_CORE_VERSION			 		0x0124
 #define PS3MAPI_CORE_MINVERSION			 		0x0111
 
+#if defined(FIRMWARE_4_80)
+	#define PS3MAPI_FW_VERSION			 		0x0480
+	#if defined(IS_MAMBA)
+		#define PS3MAPI_FW_TYPE			 		"CEX MAMBA"
+	#else
+		#define PS3MAPI_FW_TYPE			 		"CEX COBRA"
+	#endif
+	#define PS3MAPI_IDPS_1			 			0x80000000003E2E30ULL
+	#define PS3MAPI_IDPS_2			 			0x8000000000474AF4ULL
+	#define PS3MAPI_PSID						0x8000000000474B0CULL
+#endif
+#if defined(FIRMWARE_4_81)
+	#define PS3MAPI_FW_VERSION			 		0x0481
+	#if defined(IS_MAMBA)
+		#define PS3MAPI_FW_TYPE			 		"CEX MAMBA"
+	#else
+		#define PS3MAPI_FW_TYPE			 		"CEX COBRA"
+	#endif
+	#define PS3MAPI_IDPS_1			 			0x80000000003E2E30ULL
+	#define PS3MAPI_IDPS_2			 			0x8000000000474AF4ULL
+	#define PS3MAPI_PSID						0x8000000000474B0CULL
+#endif
 #if defined(FIRMWARE_4_82)
 	#define PS3MAPI_FW_VERSION			 		0x0482
 	#if defined(IS_MAMBA)
@@ -42,6 +64,17 @@
 	#define PS3MAPI_IDPS_1			 			0x8000000000409A30ULL
 	#define PS3MAPI_IDPS_2			 			0x800000000049CAF4ULL
 	#define PS3MAPI_PSID						0x800000000049CB0CULL
+#endif
+#if defined(FIRMWARE_4_83)
+	#define PS3MAPI_FW_VERSION			 		0x0483
+	#if defined(IS_MAMBA)
+		#define PS3MAPI_FW_TYPE			 		"CEX MAMBA"
+	#else
+		#define PS3MAPI_FW_TYPE			 		"CEX COBRA"
+	#endif
+	#define PS3MAPI_IDPS_1			 			0x80000000003E2E30ULL
+	#define PS3MAPI_IDPS_2			 			0x8000000000474AF4ULL
+	#define PS3MAPI_PSID						0x8000000000474B0CULL
 #endif
 #if defined(FIRMWARE_4_84)
 	#define PS3MAPI_FW_VERSION			 		0x0484
@@ -89,6 +122,66 @@
 	#define PS3MAPI_PSID						0x8000000000474B0CULL
 #endif
 
+#if defined(FIRMWARE_4_87)
+	#define PS3MAPI_FW_VERSION			 		0x0487
+	#if defined(IS_MAMBA)
+		#define PS3MAPI_FW_TYPE			 		"CEX MAMBA"
+	#else
+		#define PS3MAPI_FW_TYPE			 		"CEX COBRA"
+	#endif
+	#define PS3MAPI_IDPS_1			 			0x80000000003E2E30ULL
+	#define PS3MAPI_IDPS_2			 			0x8000000000474AF4ULL
+	#define PS3MAPI_PSID						0x8000000000474B0CULL
+#endif
+
+#if defined(FIRMWARE_4_88)
+	#define PS3MAPI_FW_VERSION			 		0x0488
+	#if defined(IS_MAMBA)
+		#define PS3MAPI_FW_TYPE			 		"CEX MAMBA"
+	#else
+		#define PS3MAPI_FW_TYPE			 		"CEX COBRA"
+	#endif
+	#define PS3MAPI_IDPS_1			 			0x80000000003E2E30ULL
+	#define PS3MAPI_IDPS_2			 			0x8000000000474AF4ULL
+	#define PS3MAPI_PSID						0x8000000000474B0CULL
+#endif
+
+#if defined(FIRMWARE_4_89)
+	#define PS3MAPI_FW_VERSION			 		0x0489
+	#if defined(IS_MAMBA)
+		#define PS3MAPI_FW_TYPE			 		"CEX MAMBA"
+	#else
+		#define PS3MAPI_FW_TYPE			 		"CEX COBRA"
+	#endif
+	#define PS3MAPI_IDPS_1			 			0x80000000003E2E30ULL
+	#define PS3MAPI_IDPS_2			 			0x8000000000474AF4ULL
+	#define PS3MAPI_PSID						0x8000000000474B0CULL
+#endif
+
+#if defined(FIRMWARE_4_90)
+	#define PS3MAPI_FW_VERSION			 		0x0490
+	#if defined(IS_MAMBA)
+		#define PS3MAPI_FW_TYPE			 		"CEX MAMBA"
+	#else
+		#define PS3MAPI_FW_TYPE			 		"CEX COBRA"
+	#endif
+	#define PS3MAPI_IDPS_1			 			0x80000000003E2E30ULL
+	#define PS3MAPI_IDPS_2			 			0x8000000000474AF4ULL
+	#define PS3MAPI_PSID						0x8000000000474B0CULL
+#endif
+
+#if defined(FIRMWARE_4_91)
+	#define PS3MAPI_FW_VERSION			 		0x0491
+	#if defined(IS_MAMBA)
+		#define PS3MAPI_FW_TYPE			 		"CEX MAMBA"
+	#else
+		#define PS3MAPI_FW_TYPE			 		"CEX COBRA"
+	#endif
+	#define PS3MAPI_IDPS_1			 			0x80000000003E2E30ULL
+	#define PS3MAPI_IDPS_2			 			0x8000000000474AF4ULL
+	#define PS3MAPI_PSID						0x8000000000474B0CULL
+#endif
+
 #define PS3MAPI_OPCODE_GET_CORE_VERSION			0x0011
 #define PS3MAPI_OPCODE_GET_CORE_MINVERSION		0x0012
 #define PS3MAPI_OPCODE_GET_FW_TYPE				0x0013
@@ -121,11 +214,13 @@ int ps3mapi_get_current_process(process_t process);
 
 #define PS3MAPI_OPCODE_GET_PROC_MEM				0x0031
 #define PS3MAPI_OPCODE_SET_PROC_MEM				0x0032
-#define PS3MAPI_OPCODE_PROC_PAGE_ALLOCATE			0x0033
+#define PS3MAPI_OPCODE_PROC_PAGE_ALLOCATE		0x0033
+#define PS3MAPI_OPCODE_PROC_PAGE_FREE			0x0034
 
 int ps3mapi_set_process_mem(process_id_t pid, uint64_t addr, char *buf, int size);
 int ps3mapi_get_process_mem(process_id_t pid, uint64_t addr, char *buf, int size);
-int ps3mapi_process_page_allocate(process_id_t pid, uint64_t size, uint64_t page_size, uint64_t flags, uint64_t is_executable, uint64_t *page_address);
+int ps3mapi_process_page_allocate(process_id_t pid, uint64_t size, uint64_t page_size, uint64_t flags, uint64_t is_executable, uint64_t *page_table);
+int ps3mapi_process_page_free(process_id_t pid, uint64_t flags, uint64_t *page_table);
 
 //-----------------------------------------------
 //MODULES
